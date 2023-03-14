@@ -6,12 +6,12 @@
 
 int main()
 {
-    uloha2_1_1();
-
+    //uloha2_1_1();
+    uloha2_1_2();
     return 0;
 }
 
-int uloha2_1_1()
+void uloha2_1_1()
 {
     int cisloA, cisloB, sum;
     printf("Zadaj dve cisla:");
@@ -26,6 +26,21 @@ int uloha2_1_1()
     }
 
     printf("\nsum = %d", sum);
+}
+
+void uloha2_1_2()
+{
+    int cisloA, sucin;
+    printf("Zadaj cislo:");
+    scanf("%d", &cisloA);
+    printf("\ncisloA = %d", cisloA);
+
+    __asm {
+        MOV EAX, cisloA;
+        SHL EAX, 1;
+        MOV sucin, EAX;
+    }
+    printf("\ncislo %d * 2 = %d",cisloA, sucin);
 }
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
