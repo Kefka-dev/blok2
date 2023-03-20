@@ -3,6 +3,8 @@
 #pragma warning(disable:4996)
 #include <stdio.h>
 #include <string.h>
+#include <Windows.h>
+#include <time.h>
 #include "blok2.h"
 
 int main()
@@ -13,7 +15,8 @@ int main()
     //{
     //    uloha2_1_3();
     //}
-    uloha2_1_4();
+    //uloha2_1_4();
+    uloha2_5_1();
     return 0;
 }
 
@@ -87,6 +90,24 @@ void uloha2_1_4()
         MOV vendorString[8], ECX;
     }
     printf("%s\n", vendorString);
+}
+
+//grafika
+void uloha2_5_1()
+{
+    HANDLE hConsole;
+    hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    int farba = 1;
+    for (int i = 0; i < 51; i++)
+    {
+        if (i % 5 == 0)
+        {
+            SetConsoleTextAttribute(hConsole,farba);
+            farba++;
+        }
+        printf("%03d\n", i);
+        Sleep(100);
+    }
 }
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
