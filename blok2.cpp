@@ -2,16 +2,18 @@
 //
 #pragma warning(disable:4996)
 #include <stdio.h>
+#include <string.h>
 #include "blok2.h"
 
 int main()
 {
     //uloha2_1_1();
     //uloha2_1_2();
-    while (1)
-    {
-        uloha2_1_3();
-    }
+    //while (1)
+    //{
+    //    uloha2_1_3();
+    //}
+    uloha2_1_4();
     return 0;
 }
 
@@ -71,6 +73,20 @@ void uloha2_1_3()
     }
 
     printf("vstup: %d, vystup: %c (%d)", cislo, vystup, vystup);
+}
+
+void uloha2_1_4()
+{
+    int vendorString[12] = { 0 };
+    __asm {
+        MOV EAX, 0;
+        CPUID;
+        //MOV obsahEBX, EBX;
+        MOV vendorString[0], EBX;
+        MOV vendorString[4], EDX;
+        MOV vendorString[8], ECX;
+    }
+    printf("%s\n", vendorString);
 }
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
