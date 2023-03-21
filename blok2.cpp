@@ -20,7 +20,7 @@ int main()
     return 0;
 }
 
-void uloha2_1_1()
+void uloha2_1_1()//1b
 {
     int cisloA, cisloB, sum;
     printf("Zadaj dve cisla:");
@@ -37,7 +37,7 @@ void uloha2_1_1()
     printf("\nsum = %d", sum);
 }
 
-void uloha2_1_2()
+void uloha2_1_2()//1b
 {
     int cisloA, sucin;
     printf("Zadaj cislo:");
@@ -52,7 +52,7 @@ void uloha2_1_2()
     printf("\ncislo %d * 2 = %d",cisloA, sucin);
 }
 
-void uloha2_1_3()
+void uloha2_1_3()//3b
 {
     unsigned int cislo, vystup;
     do
@@ -78,7 +78,7 @@ void uloha2_1_3()
     printf("vstup: %d, vystup: %c (%d)", cislo, vystup, vystup);
 }
 
-void uloha2_1_4()
+void uloha2_1_4()//2b
 {
     int vendorString[12] = { 0 };
     __asm {
@@ -93,7 +93,7 @@ void uloha2_1_4()
 }
 
 //grafika
-void uloha2_5_1()
+void uloha2_5_1()//1b
 {
     HANDLE hConsole;
     hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
