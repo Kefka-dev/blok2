@@ -101,7 +101,7 @@ void uloha2_1_3()//3b
 
 void uloha2_1_4()//2b
 {
-    int vendorString[12] = { 0 };
+    int vendorString[4] = { 0 };
     __asm {
         MOV EAX, 0;
         CPUID;
