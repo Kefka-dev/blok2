@@ -141,7 +141,7 @@ void uloha2_5_2()
     int x, y;
     int vyska = 150, hmotnost= 80;
     int rightColWidth, nameLen;
-    char menoPriezvisko[MAX_DLZKA_MENA] = "peter maly";
+    char menoPriezvisko[MAX_DLZKA_MENA] = "frantisek stromokocur";
     char telC[DLZKA_TELC] = "0969 / 123 123";
 
     printf("\nZadaj surednice na ktorych sa zobrazi tabulka:");
