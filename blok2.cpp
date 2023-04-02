@@ -36,7 +36,8 @@ int main()
     //    uloha2_1_3();
     //}
     //uloha2_1_4();
-    uloha2_5_1();
+    //uloha2_5_1();
+    uloha2_5_2();
     return 0;
 }
 
@@ -126,8 +127,86 @@ void uloha2_5_1()//1b
             farba++;
         }
         printf("%03d\n", i);
-        Sleep(100);
+        Sleep(1000);
     }
+}
+
+void uloha2_5_2()
+{
+    HANDLE hConsole;
+    hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    
+    int x, y;
+    int vyska = 150, hmotnost= 80;
+    int rightColWidth, nameLen;
+    char menoPriezvisko[MAX_DLZKA_MENA] = "peter maly";
+    char telC[DLZKA_TELC] = "0969 / 123 123";
+
+    printf("\nZadaj surednice na ktorych sa zobrazi tabulka:");
+    scanf("%d %d", &x, &y);
+
+    COORD point = { x, y };
+    SetConsoleCursorPosition(hConsole, point);
+    
+    
+    nameLen = strlen(menoPriezvisko);
+
+    if (nameLen > DLZKA_TELC)
+    {
+        rightColWidth = nameLen;
+    }
+    else
+    {
+        rightColWidth = DLZKA_TELC;
+    }
+    
+    genTable(rightColWidth, x, y);
+    //printf("%d", rightColWidth);
+    //test znakov
+    //printf("%c %c %c %c %c %c %c %c %c %c %c", TopLeftCorner, TopRightCorner, BottomLeftCorner, BottomRightCorner, HorizontalLine, VerticalLine, Tshape,TshapeUP,TshapeLeft,TshapeRight,Cross);
+
+}
+
+void genTable(int rightWidth, int posX, int posY) 
+{
+    tableHead(rightWidth, posX, posY);
+
+}
+
+void tableHead(int rightWidth, int posX, int posY)
+{
+    HANDLE hConsole;
+    hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    
+    COORD point = { posX, posY };
+    
+    SetConsoleTextAttribute(hConsole, YELLOW);
+    printf("%c%c", TopLeftCorner, HorizontalLine);
+    
+    SetConsoleTextAttribute(hConsole, GREEN);
+    printf("Zaznam 000");
+    
+    SetConsoleTextAttribute(hConsole, YELLOW);
+    printf("%c", HorizontalLine);
+
+    for (int i = 0; i < rightWidth; i++)
+    {
+        printf("%c", HorizontalLine);
+    }
+    printf("%c", TopRightCorner);
+    point.Y++;
+    SetConsoleCursorPosition(hConsole, point);
+    
+    printf("%c", TshapeRight);
+    for (int i = 0; i < (LEFT_COL + rightWidth); i++)
+    {
+        printf("%c", HorizontalLine);
+        if (i == LEFT_COL)
+        {
+            printf("%c", Tshape);
+        }
+    }
+    printf("%c", TshapeLeft);
 }
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
