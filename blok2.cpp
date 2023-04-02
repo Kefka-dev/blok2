@@ -137,6 +137,9 @@ void uloha2_5_2()
     hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     
     int x, y;
+    /*int* p_x, * p_y;
+    p_x = &x;
+    p_y = &y;*/
     int vyska = 150, hmotnost= 80;
     int rightColWidth, nameLen;
     char menoPriezvisko[MAX_DLZKA_MENA] = "peter maly";
@@ -160,25 +163,27 @@ void uloha2_5_2()
         rightColWidth = DLZKA_TELC;
     }
     
-    genTable(rightColWidth, x, y);
+    genTable(rightColWidth, &x,&y);
+
+    printf("x = %d y = %d", x, y);
     //printf("%d", rightColWidth);
     //test znakov
     //printf("%c %c %c %c %c %c %c %c %c %c %c", TopLeftCorner, TopRightCorner, BottomLeftCorner, BottomRightCorner, HorizontalLine, VerticalLine, Tshape,TshapeUP,TshapeLeft,TshapeRight,Cross);
 
 }
 
-void genTable(int rightWidth, int posX, int posY) 
+void genTable(int rightWidth, int* p_posX, int* p_posY) 
 {
-    tableHead(rightWidth, posX, posY);
+    tableHead(rightWidth, p_posX, p_posY);
 
 }
 
-void tableHead(int rightWidth, int posX, int posY)
+void tableHead(int rightWidth, int* p_posX, int* p_posY)
 {
     HANDLE hConsole;
     hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-    
-    COORD point = { posX, posY };
+
+    COORD point = {*p_posX, *p_posY};
     
     SetConsoleTextAttribute(hConsole, YELLOW);
     printf("%c%c", TopLeftCorner, HorizontalLine);
@@ -193,8 +198,10 @@ void tableHead(int rightWidth, int posX, int posY)
     {
         printf("%c", HorizontalLine);
     }
+
     printf("%c", TopRightCorner);
     point.Y++;
+    (*p_posY)++;
     SetConsoleCursorPosition(hConsole, point);
     
     printf("%c", TshapeRight);
@@ -208,5 +215,7 @@ void tableHead(int rightWidth, int posX, int posY)
     }
     printf("%c", TshapeLeft);
 }
+
+//void tableData(int rightWidth, int posX)
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
