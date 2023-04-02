@@ -139,10 +139,11 @@ void uloha2_5_2()
     hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     
     int x, y;
-    int vyska = 150, hmotnost= 80;
     int rightColWidth, nameLen;
     char menoPriezvisko[MAX_DLZKA_MENA] = "frantisek stromokocur";
     char telC[DLZKA_TELC] = "0969 / 123 123";
+    char vyska[10] = "180 cm";
+    char hmotnost[10] = "80 kg";
 
     printf("\nZadaj surednice na ktorych sa zobrazi tabulka:");
     scanf("%d %d", &x, &y);
