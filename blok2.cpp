@@ -172,12 +172,6 @@ void uloha2_5_2()
 
 }
 
-void genTable(int rightWidth, int* p_posX, int* p_posY) 
-{
-    tableHead(rightWidth, p_posX, p_posY);
-
-}
-
 void tableHead(int rightWidth, int* p_posX, int* p_posY)
 {
     HANDLE hConsole;
