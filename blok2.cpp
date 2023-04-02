@@ -33,7 +33,7 @@ int main()
     //uloha2_1_2();
     //while (1)
     //{
-    //    uloha2_1_3();
+       //uloha2_1_3();
     //}
     //uloha2_1_4();
     //uloha2_5_1();
