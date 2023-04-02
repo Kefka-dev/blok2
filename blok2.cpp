@@ -148,6 +148,7 @@ void uloha2_5_2()
     printf("\nZadaj surednice na ktorych sa zobrazi tabulka:");
     scanf("%d %d", &x, &y);
 
+    system("cls");
     COORD point = { x, y };
     SetConsoleCursorPosition(hConsole, point);
     
@@ -163,10 +164,21 @@ void uloha2_5_2()
         rightColWidth = DLZKA_TELC;
     }
     
-    genTable(rightColWidth, &x,&y);
+    
+    tableHead(rightColWidth, &x, &y);
+    //printf("\nx = %d y = %d", *p_posX, *p_posY);
+    y++;
+    //printf("\nx = %d y = %d", *p_posX, *p_posY);
+    tableData(rightColWidth, &x, &y, "Meno", menoPriezvisko, FALSE);
+    y++;
 
-    printf("x = %d y = %d", x, y);
-    //printf("%d", rightColWidth);
+    tableData(rightColWidth, &x, &y, "Vyska", vyska, FALSE);
+    y++;
+
+    tableData(rightColWidth, &x, &y, "Hmotnost", hmotnost, FALSE);
+    y++;
+
+    tableData(rightColWidth, &x, &y, "Tel.", telC, TRUE);
     //test znakov
     //printf("%c %c %c %c %c %c %c %c %c %c %c", TopLeftCorner, TopRightCorner, BottomLeftCorner, BottomRightCorner, HorizontalLine, VerticalLine, Tshape,TshapeUP,TshapeLeft,TshapeRight,Cross);
 
