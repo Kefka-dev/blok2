@@ -137,9 +137,6 @@ void uloha2_5_2()
     hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     
     int x, y;
-    /*int* p_x, * p_y;
-    p_x = &x;
-    p_y = &y;*/
     int vyska = 150, hmotnost= 80;
     int rightColWidth, nameLen;
     char menoPriezvisko[MAX_DLZKA_MENA] = "peter maly";
