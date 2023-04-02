@@ -7,6 +7,26 @@
 #include <time.h>
 #include "blok2.h"
 
+const unsigned char BottomLeftCorner = 200;
+const unsigned char BottomRightCorner = 188;
+const unsigned char TopRightCorner = 187; 
+const unsigned char TopLeftCorner = 201; 
+const unsigned char HorizontalLine = 205;
+const unsigned char VerticalLine = 186;
+const unsigned char Tshape = 203;
+const unsigned char TshapeUP = 202;
+const unsigned char TshapeRight = 204;
+const unsigned char TshapeLeft = 185;
+const unsigned char Cross = 206;
+
+#define YELLOW 14
+#define GREEN 10
+#define MAX_DLZKA_MENA 50
+#define DLZKA_TELC 15
+#define LEFT_COL 11
+#define ROWS 10
+#define BORDERS 3
+#define WHITE_SPACE 2
 int main()
 {
     //uloha2_1_1();
