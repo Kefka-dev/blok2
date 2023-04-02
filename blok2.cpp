@@ -210,6 +210,74 @@ void tableHead(int rightWidth, int* p_posX, int* p_posY)
     printf("%c", TshapeLeft);
 }
 
-//void tableData(int rightWidth, int posX)
+void tableData(int rightWidth, int* p_posX, int* p_posY, const char *leftColString, char *rightColString, int isLast)
+{
+    //datovy riadok tabulky sa sklada z dvoch cmd riadkov, 
+    HANDLE hConsole;
+    hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+
+    COORD point = { *p_posX, *p_posY };
+    int dataNameLen, dataLen;
+    dataNameLen = strlen(leftColString);
+    dataLen = strlen(rightColString);
+    
+    //-----vypis laveho stkoca tabulky-------
+    SetConsoleCursorPosition(hConsole, point);
+    printf("%c ", VerticalLine);
+
+    SetConsoleTextAttribute(hConsole, GREEN);
+    printf("%s", leftColString);
+
+    SetConsoleTextAttribute(hConsole, YELLOW);
+    for (int i = 0; i < (LEFT_COL - dataNameLen -1); i++)
+    {
+        printf(" ");
+    }
+    printf("%c", VerticalLine);
+
+    //-----vypis praveho stlpca tabulky-----
+    SetConsoleTextAttribute(hConsole, GREEN);
+    for (int i = 0; i <(rightWidth - dataLen); i++)
+    {
+        printf(" ");
+    }
+    printf(" %s ", rightColString);
+    SetConsoleTextAttribute(hConsole, YELLOW);
+    printf("%c", VerticalLine);
+
+    point.Y++;
+    (*p_posY)++;
+    SetConsoleCursorPosition(hConsole, point);
+
+    //--------vypis riadku tvoriaceho lem tabulky--------
+    //posledny riadok pouziva ine graficke prvky (rohy), preto treba zvlast vypis
+    if (isLast == FALSE)
+    {
+        printf("%c", TshapeRight);
+        for (int i = 0; i < (LEFT_COL + rightWidth +2); i++)
+        {
+            printf("%c", HorizontalLine);
+            if (i == LEFT_COL - 1)
+            {
+                printf("%c", Cross);
+            }
+        }
+        printf("%c", TshapeLeft);
+}
+    else
+    {
+        printf("%c", BottomLeftCorner);
+        for (int i = 0; i < (LEFT_COL + rightWidth + 2); i++)
+        {
+            printf("%c", HorizontalLine);
+            if (i == LEFT_COL - 1)
+            {
+                printf("%c", TshapeUP);
+            }
+        }
+        printf("%c", BottomRightCorner);
+    }
+
+}
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
