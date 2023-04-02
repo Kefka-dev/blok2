@@ -27,6 +27,8 @@ const unsigned char Cross = 206;
 #define ROWS 10
 #define BORDERS 3
 #define WHITE_SPACE 2
+#define TRUE 1
+#define FALSE 0
 int main()
 {
     //uloha2_1_1();
