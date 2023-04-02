@@ -178,12 +178,12 @@ void tableHead(int rightWidth, int* p_posX, int* p_posY)
     hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
     COORD point = {*p_posX, *p_posY};
-    
+    //---------vypis nazvu tabulky--------------
     SetConsoleTextAttribute(hConsole, YELLOW);
     printf("%c%c", TopLeftCorner, HorizontalLine);
     
     SetConsoleTextAttribute(hConsole, GREEN);
-    printf("Zaznam 000");
+    printf(" Zaznam 001 ");
     
     SetConsoleTextAttribute(hConsole, YELLOW);
     printf("%c", HorizontalLine);
@@ -192,17 +192,17 @@ void tableHead(int rightWidth, int* p_posX, int* p_posY)
     {
         printf("%c", HorizontalLine);
     }
-
     printf("%c", TopRightCorner);
+    //-----------vypis riadku tvoriaceho tabulku----------
     point.Y++;
     (*p_posY)++;
     SetConsoleCursorPosition(hConsole, point);
     
     printf("%c", TshapeRight);
-    for (int i = 0; i < (LEFT_COL + rightWidth); i++)
+    for (int i = 0; i < (LEFT_COL + rightWidth+2); i++)
     {
         printf("%c", HorizontalLine);
-        if (i == LEFT_COL)
+        if (i == LEFT_COL-1)
         {
             printf("%c", Tshape);
         }
