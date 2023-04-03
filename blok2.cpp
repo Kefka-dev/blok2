@@ -21,7 +21,7 @@ const unsigned char Cross = 206;
 
 #define YELLOW 14
 #define GREEN 10
-#define MAX_DLZKA_MENA 50
+#define MAX_DLZKA_MENA 70
 #define DLZKA_TELC 15
 #define LEFT_COL 11
 #define ROWS 10
@@ -140,7 +140,7 @@ void uloha2_5_2()
     
     int x, y;
     int rightColWidth, nameLen;
-    char menoPriezvisko[MAX_DLZKA_MENA] = "frantisek stromokocur";
+    char menoPriezvisko[MAX_DLZKA_MENA] = "Velmi dlhe meno pravda";
     char telC[DLZKA_TELC] = "0969 / 123 123";
     char vyska[10] = "180 cm";
     char hmotnost[10] = "80 kg";
