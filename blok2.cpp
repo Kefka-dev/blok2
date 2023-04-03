@@ -40,7 +40,8 @@ int main()
     //uloha2_1_4();
     //uloha2_5_1();
     //uloha2_5_2();
-    uloha_2_3_1();
+    //uloha_2_3_1();
+    uloha2_2();
     return 0;
 }
 
@@ -339,6 +340,27 @@ int uloha_2_3_1()//2b
     }
     printf("hotovo");
     return 0;
+}
+
+void uloha2_2()
+{
+    char poleZnakov[50] = "architektura_pocitacov_je_super_predmet";
+    printf("%s\n", poleZnakov);
+
+    char* p_poleZnakov;
+    p_poleZnakov = poleZnakov;
+
+    printf("%p\n", poleZnakov);
+    p_poleZnakov++;
+    
+    *p_poleZnakov = 'X';
+
+    printf("%s\n", poleZnakov);
+
+    p_poleZnakov = p_poleZnakov + 999999;
+
+    *p_poleZnakov = 'X';
+
 }
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
