@@ -39,7 +39,8 @@ int main()
     //}
     //uloha2_1_4();
     //uloha2_5_1();
-    uloha2_5_2();
+    //uloha2_5_2();
+    uloha_2_3_1();
     return 0;
 }
 
@@ -290,6 +291,54 @@ void tableData(int rightWidth, int* p_posX, int* p_posY, const char *leftColStri
         printf("%c", BottomRightCorner);
     }
    
+}
+
+int uloha_2_3_1()//2b
+{
+    FILE* file_ptr, *new_file_ptr;
+    file_ptr = fopen("poviedka.html", "r+");
+    new_file_ptr = fopen("poviedkaUpdate.html", "w");
+    int c, counter = 0;
+    if (file_ptr == NULL)
+    {
+        printf("File neexistuje\n");
+        return 1;
+    }
+    while ((c = fgetc(file_ptr)) != EOF)
+    {
+        if (c == 165) {
+            fputc(188, new_file_ptr);
+        }
+        else if (c == 169) {
+            fputc(138, new_file_ptr);
+        }
+        else if (c == 171) {
+            fputc(141, new_file_ptr);
+        }
+        else if (c == 174) {
+            fputc(142, new_file_ptr);
+        }
+        else if (c == 181) {
+            fputc(190, new_file_ptr);
+        }
+        else if (c == 185) {
+            fputc(154, new_file_ptr);
+        }
+        else if (c == 187) {
+            fputc(157, new_file_ptr);
+        }
+        else if (c == 190) {
+            fputc(158, new_file_ptr);
+        }
+        else
+        {
+            fputc(c, new_file_ptr);
+        }
+        printf("character %d written\n", counter);
+        counter++;
+    }
+    printf("hotovo");
+    return 0;
 }
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
